@@ -1,0 +1,46 @@
+# NeoForge events and vanilla client calls, mapped to Horizon native hooks.
+# Vanilla calls shared with Fabric live in fabric.toml and apply here too.
+
+[target]
+horizon = "26.3"
+hooks = 2
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.ClientTickEvent.Post"
+horizon = "native_tick"
+confidence = "auto"
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.RenderGuiEvent.Post"
+horizon = "native_hud"
+confidence = "auto"
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent"
+horizon = "native_mod_key"
+confidence = "auto"
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.InputEvent.Key"
+horizon = "native_key"
+confidence = "auto"
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.InputEvent.MouseScrollingEvent"
+horizon = "native_wheel"
+confidence = "auto"
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.RegisterClientCommandsEvent"
+horizon = "native_command"
+confidence = "review"
+note = "Brigadier trees are flattened to a prefix match."
+
+[[rule]]
+java = "net.neoforged.neoforge.client.event.ViewportEvent.ComputeFov"
+horizon = "native_zoom"
+confidence = "review"
+
+[[unsupported]]
+java = "net.neoforged.neoforge.client.event.RenderLevelStageEvent"
+reason = "It changes how the game draws the world."

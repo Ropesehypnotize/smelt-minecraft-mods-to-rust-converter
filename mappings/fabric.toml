@@ -1,0 +1,70 @@
+# Fabric API and vanilla client calls, mapped to Horizon native hooks.
+# confidence = "auto"   the rewrite is exact and needs no review
+# confidence = "review" rewritten from a known pattern; flagged in Developer mode
+
+[target]
+horizon = "26.3"
+hooks = 2
+
+[[rule]]
+java = "net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK"
+horizon = "native_tick"
+confidence = "auto"
+
+[[rule]]
+java = "net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.EVENT"
+horizon = "native_hud"
+confidence = "auto"
+
+[[rule]]
+java = "net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper.registerKeyBinding"
+horizon = "native_mod_key"
+confidence = "auto"
+
+[[rule]]
+java = "net.minecraft.client.KeyMapping.isDown"
+horizon = "native_key"
+confidence = "auto"
+note = "Tracked from key events; the state lives in the mod."
+
+[[rule]]
+java = "net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback.EVENT"
+horizon = "native_command"
+confidence = "review"
+note = "Brigadier trees are flattened to a prefix match."
+
+[[rule]]
+java = "net.minecraft.client.gui.GuiGraphics.fill"
+horizon = "native_fill"
+confidence = "auto"
+
+[[rule]]
+java = "net.minecraft.client.gui.GuiGraphics.drawString"
+horizon = "native_text"
+confidence = "auto"
+
+[[rule]]
+java = "net.minecraft.client.gui.Font.width"
+horizon = "native_text_width"
+confidence = "auto"
+
+[[rule]]
+java = "net.minecraft.client.gui.components.ChatComponent.addMessage"
+horizon = "native_chat"
+confidence = "auto"
+
+[[rule]]
+java = "net.minecraft.client.Minecraft.player"
+horizon = "native_player"
+confidence = "auto"
+note = "Position, rotation and dimension only."
+
+[[pattern]]
+name = "fov-zoom"
+mixin = "net.minecraft.client.renderer.GameRenderer.getFov"
+horizon = "native_zoom"
+confidence = "review"
+
+[[unsupported]]
+java = "net.minecraft.client.renderer"
+reason = "It changes how the game draws the world."

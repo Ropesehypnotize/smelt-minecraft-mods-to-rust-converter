@@ -1,0 +1,7 @@
+[package]
+name = "smelt-core"
+description = "Reads Java Minecraft mods and rewrites them for Minecraft on Rust"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
