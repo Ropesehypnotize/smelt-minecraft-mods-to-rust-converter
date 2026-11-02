@@ -1,5 +1,13 @@
 # Changelog
 
+
+## 1.1.22 · 2026-11-01
+
+- Ports finish when a mod bundles its own dependencies.
+- Generated crates build with the current toolchain.
+- Progress view survives long runs without freezing.
+- Better error wording when a jar entry is unreadable.
+
 ## 1.1.21
 
 - Mappings for Horizon 26.3: 41 new Fabric rules and the NeoForge event set, so more client mods come over as **Works** instead of **Partly**.

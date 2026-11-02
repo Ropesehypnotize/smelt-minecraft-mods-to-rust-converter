@@ -30,13 +30,11 @@ Drop the `.jar` on the window, wait a few seconds, press **Add to Horizon**. Tha
 
 | System | File | |
 |---|---|---|
-| Windows 10 and 11 | `Smelt-1.1.21-portable-x64.exe` | One file. No installer, no admin rights |
-| Linux (x86_64) | `Smelt-1.1.21-x86_64.AppImage` | `chmod +x`, then run it |
-
-You need Horizon 26.3 on the same PC. Smelt finds it on its own. You don't need Java or a Rust toolchain.
+| Windows 10 and 11 | [`Smelt-1.1.22-portable-x64.exe`](https://github.com/Ropesehypnotize/smelt-minecraft-mods-to-rust-converter/releases/latest/download/Smelt-1.1.22-portable-x64.exe) | One file. No installer, no admin rights |
 
 > [!NOTE]
-> The Windows build isn't code-signed yet, so SmartScreen may warn you the first time. Choose **More info**, then **Run anyway**.
+> The build isn't code-signed yet, so SmartScreen may warn you the first time.
+> Choose **More info**, then **Run anyway**.
 
 ## How to use
 
